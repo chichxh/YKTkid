@@ -1,0 +1,12 @@
+body {
+	font-family: Jost, Arial, sans-serif;
+}
+#kid {
+	display: none;
+}
+#parent {
+	display: none;
+}
+#do {
+	display: none;
+}
