@@ -1,5 +1,9 @@
 <?php 
 require 'connect.php';
+$sql = 'SELECT * FROM event';
+$resultEvent = mysqli_query($link, $sql);
+$sql = 'SELECT * FROM section';
+$resultSection = mysqli_query($link, $sql);
  ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -16,6 +20,30 @@ require 'connect.php';
 <body>
 	<a href="signin.php">Войти</a>
 	<a href="signup.php">Регистрация</a>
+
+
+	<!-- показ мероприятий -->
+	<?php while ($row = mysqli_fetch_array($resultEvent)): ?>
+		<p><?= $row['name']; ?></p>
+		<p><?= $row['description']; ?></p>
+		<p><?= $row['place']; ?></p>
+		<p><?= $row['typebill']; ?></p>
+		<p><?= $row['organaizer']; ?></p>
+		<p><?= $row['dateofevent']; ?></p>
+		<p><?= $row['photo']; ?></p>
+	<?php endwhile; ?>
+
+	<!-- показ кружков -->
+	<?php while ($row = mysqli_fetch_array($resultSection)): ?>
+		<p><?= $row['name']; ?></p>
+		<p><?= $row['eductype']; ?></p>
+		<p><?= $row['description']; ?></p>
+		<p><?= $row['place']; ?></p>
+		<p><?= $row['typebill']; ?></p>
+		<p><?= $row['teacher']; ?></p>
+		<p><?= $row['dateofevent']; ?></p>
+		<p><?= $row['photo']; ?></p>
+	<?php endwhile; ?>
 
 
 

@@ -1,10 +1,7 @@
 <?php 
 require '../connect.php';
-session_start();
-$userID = $_SESSION['id'];
-$name = $_SESSION['name'];
-$surname = $_SESSION['surname'];
-$email = $_SESSION['email'];
+$sql = 'SELECT * FROM lecture';
+$resultLecture = mysqli_query($link, $sql);
  ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -19,8 +16,15 @@ $email = $_SESSION['email'];
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<p>страница для детей</p>
-	<p><?= $name; ?> <?= $surname; ?></p>
+	<p>Страница родителя</p>
+	<!-- показ мероприятий -->
+	<?php while ($row = mysqli_fetch_array($resultLecture)): ?>
+		<p><?= $row['name']; ?></p>
+		<p><?= $row['shortdescription']; ?></p>
+		<p><?= $row['fulldescription']; ?></p>
+		<video  width="400" height="300" controls="controls"><source src="<?= $row['video']; ?>" type='video/ogg; codecs="theora, vorbis"'></video>
+	<?php endwhile; ?>
+
 
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

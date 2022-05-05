@@ -1,6 +1,5 @@
 <?php 
 require 'connect.php';
-
 if(isset($_POST['signupKid']))
 {
 	$query = mysqli_query($link, "SELECT id FROM kids WHERE email='".mysqli_real_escape_string($link, $_POST['email'])."'");
@@ -8,14 +7,10 @@ if(isset($_POST['signupKid']))
 	{
 	    $err[] = "Пользователь с такой электроной почтой уже существует";
 	}
-
     if(count($err) == 0)
     {
-
         $email = $_POST['email'];
-
         $password = md5(md5(trim($_POST['password'])));
-
         $query = "INSERT INTO kids (name, surname, patronymic, age, school, clas, email, password) VALUES ('". $_POST['name'] ."', '". $_POST['surname'] ."', '". $_POST['patronymic'] ."', '". $_POST['age'] ."', '". $_POST['school'] ."', '". $_POST['clas'] ."', '". $_POST['email'] ."', '". $_POST['password'] ."')";
         $res = mysqli_query($link, $query);
         header("Location: kids/index.php");
@@ -40,26 +35,22 @@ if(isset($_POST['signupKid']))
         }
     }
 }
-
+//Регистрация Родителей
 if(isset($_POST['signupParrent']))
 {
-	$query = mysqli_query($link, "SELECT id FROM parents WHERE emailPar='".mysqli_real_escape_string($link, $_POST['emailPar'])."'");
-	if(mysqli_num_rows($query) > 0)
+	$queryPar = mysqli_query($link, "SELECT id FROM parents WHERE emailPar='".mysqli_real_escape_string($link, $_POST['emailPar'])."'");
+	if(mysqli_num_rows($queryPar) > 0)
 	{
 	    $err[] = "Пользователь с такой электроной почтой уже существует";
 	}
-
     if(count($err) == 0)
     {
-
-        $email = $_POST['email'];
-
+        $emailPar = $_POST['emailPar'];
         $password = md5(md5(trim($_POST['passwordPar'])));
-        #заменить здесь
-        $query = "INSERT INTO parrent (namePar, surnamePar, patronymicPar, emailPar, passwordPar) VALUES ('". $_POST['namePar'] ."', '". $_POST['surnamePar'] ."', '". $_POST['patronymicPar'] ."', '". $_POST['emailPar'] ."', '". $_POST['passwordPar'] ."')";
-        $res = mysqli_query($link, $query);
+        $queryPar = "INSERT INTO parents (namePar, surnamePar, patronymicPar, emailPar, passwordPar) VALUES ('". $_POST['namePar'] ."', '". $_POST['surnamePar'] ."', '". $_POST['patronymicPar'] ."', '". $_POST['emailPar'] ."', '". $_POST['passwordPar'] ."')";
+        $res = mysqli_query($link, $queryPar);
         header("Location: parrent/index.php");
-        session_start();
+        // session_start();
         // $_SESSION['id'] = (int)$data['id'];
         // $_SESSION['name'] = $data['name'];
         // $_SESSION['surname'] = $data['surname'];
@@ -80,7 +71,7 @@ if(isset($_POST['signupParrent']))
         }
     }
 }
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -145,19 +136,19 @@ if(isset($_POST['signupParrent']))
 			<form action="signup.php" method="post">
 				<div class="mb-3">
 				    <label class="form-label">Имя</label>
-				    <input type="text" class="form-control" id="name" name="namePar">
+				    <input type="text" class="form-control" id="namePar" name="namePar">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Фамилия</label>
-				    <input type="text" class="form-control" id="surname" name="surnamePar">
+				    <input type="text" class="form-control" id="surnamePar" name="surnamePar">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Отчество</label>
-				    <input type="text" class="form-control" id="patronymic" name="patronymicPar">
+				    <input type="text" class="form-control" id="patronymicPar" name="patronymicPar">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Эл. адресс</label>
-				    <input type="email" class="form-control" id="email" name="emailPar">
+				    <input type="email" class="form-control" id="emailPar" name="emailPar">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Пароль</label>
