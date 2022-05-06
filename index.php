@@ -18,32 +18,38 @@ $resultSection = mysqli_query($link, $sql);
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<a href="signin.php">Войти</a>
-	<a href="signup.php">Регистрация</a>
+	
+	<?php require 'header.php' ?>
+	<div class="container">	
+		<?php while ($row = mysqli_fetch_array($resultEvent)): ?>
+			<div class="row event mb-3">
+				<p><?= $row['name']; ?></p>
+				<p><?= $row['description']; ?></p>
+				<p><?= $row['place']; ?></p>
+				<p><?= $row['typebill']; ?></p>
+				<p><?= $row['organaizer']; ?></p>
+				<p><?= $row['dateofevent']; ?></p>
+				<p><?= $row['photo']; ?></p>
+				<button></button>
+			</div>
+		<?php endwhile; ?>
+		
+		
 
-
-	<!-- показ мероприятий -->
-	<?php while ($row = mysqli_fetch_array($resultEvent)): ?>
-		<p><?= $row['name']; ?></p>
-		<p><?= $row['description']; ?></p>
-		<p><?= $row['place']; ?></p>
-		<p><?= $row['typebill']; ?></p>
-		<p><?= $row['organaizer']; ?></p>
-		<p><?= $row['dateofevent']; ?></p>
-		<p><?= $row['photo']; ?></p>
-	<?php endwhile; ?>
-
-	<!-- показ кружков -->
 	<?php while ($row = mysqli_fetch_array($resultSection)): ?>
-		<p><?= $row['name']; ?></p>
-		<p><?= $row['eductype']; ?></p>
-		<p><?= $row['description']; ?></p>
-		<p><?= $row['place']; ?></p>
-		<p><?= $row['typebill']; ?></p>
-		<p><?= $row['teacher']; ?></p>
-		<p><?= $row['dateofevent']; ?></p>
-		<p><?= $row['photo']; ?></p>
+		<div class="row section mb-3">
+			<p><?= $row['name']; ?></p>
+			<p><?= $row['eductype']; ?></p>
+			<p><?= $row['description']; ?></p>
+			<p><?= $row['place']; ?></p>
+			<p><?= $row['typebill']; ?></p>
+			<p><?= $row['teacher']; ?></p>
+			<p><?= $row['dateofevent']; ?></p>
+			<p><?= $row['photo']; ?></p>
+		</div>
 	<?php endwhile; ?>
+	</div>
+	
 
 
 

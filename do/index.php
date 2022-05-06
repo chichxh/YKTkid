@@ -14,11 +14,12 @@ require '../connect.php';
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<p>страница ДО, ОО</p>
+	<?php require '../header.php' ?>
 
 	<!-- добавить мероприятие -->
-	<div class="continer">
-		<div class="row">
+	<div class="container">
+		<div class="row mb-5">
+			<h1>Добавить мероприятие</h1>
 			<form action="../upload.php" method="post" enctype=multipart/form-data>
 				<div class="mb-3">
 				    <label class="form-label">Название</label>
@@ -51,11 +52,10 @@ require '../connect.php';
 				<button type="submit" class="btn btn-primary" name="addEvent">Добавить мероприятие</button>
 			</form>
 		</div>
-	</div>
 
 	<!-- добавить кружок -->
-	<div class="continer">
-		<div class="row">
+		<div class="row mb-5">
+			<h1>Добавить кружок</h1>
 			<form action="../upload.php" method="post" enctype=multipart/form-data>
 				<div class="mb-3">
 				    <label class="form-label">Название</label>
@@ -99,25 +99,28 @@ require '../connect.php';
 		</div>
 
 		<!-- добавление лекций -->
-		<form action="../upload.php" method="post" enctype=multipart/form-data>
-			<div class="mb-3">
-			    <label class="form-label">Название лекции</label>
-			    <input type="text" class="form-control" name="name">
-			</div>
-			<div class="mb-3">
-			    <label class="form-label">Краткое описание</label>
-			    <input type="text" class="form-control" name="shortdescription">
-			</div>
-			<div class="mb-3">
-			    <label class="form-label">Полное описание</label>
-			    <input type="text" class="form-control" name="fulldescription">
-			</div>
-			<div class="mb-3">
-			    <label class="form-label">Видео-материал</label>
-			    <input type="file" class="form-control" name="video" multiple>
-			</div>
-			<button type="submit" class="btn btn-primary" name="addLecture">Добавить кружок</button>
-		</form>
+		<div class="row mb-5">
+			<h1>Добавить лекцию</h1>
+			<form action="../upload.php" method="post" enctype=multipart/form-data>
+				<div class="mb-3">
+				    <label class="form-label">Название лекции</label>
+				    <input type="text" class="form-control" name="name">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Краткое описание</label>
+				    <input type="text" class="form-control" name="shortdescription">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Полное описание</label>
+				    <input type="text" class="form-control" name="fulldescription">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Видео-материал</label>
+				    <input type="file" class="form-control" name="video" multiple>
+				</div>
+				<button type="submit" class="btn btn-primary" name="addLecture">Добавить кружок</button>
+			</form>
+		</div>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

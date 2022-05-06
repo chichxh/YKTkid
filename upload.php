@@ -46,4 +46,33 @@ if (isset($_POST['addLecture'])) {
         	echo "error";
         }
     }
+
+if (isset($_POST['submitorderp'])) {
+	    $link_name = $_FILES['photo']['name'];
+	    $link_tmp = $_FILES['photo']['tmp_name'];
+	    move_uploaded_file($link_tmp,"uploads/".$link_name);
+		$path = 'uploads/';
+        $query = "INSERT INTO orders (title, category, fulldescription, photo, deadline, budget, customer) VALUES ('". $_POST['title'] ."', '". $_POST['category'] ."', '". $_POST['fulldescription'] ."', '". $path . $_FILES['photo']['name'] ."', '". $_POST['deadline'] ."', '". $_POST['budget'] ."', '". $_POST['customer'] ."')";
+        $res = mysqli_query($link, $query);
+        if ($res) {
+        	header("Location: parent/index.php");
+        }
+        else {
+        	echo "error";
+        }
+    }
+if (isset($_POST['submitorderk'])) {
+	    $link_name = $_FILES['photo']['name'];
+	    $link_tmp = $_FILES['photo']['tmp_name'];
+	    move_uploaded_file($link_tmp,"uploads/".$link_name);
+		$path = 'uploads/';
+        $query = "INSERT INTO orders (title, category, fulldescription, photo, deadline, budget, customer) VALUES ('". $_POST['title'] ."', '". $_POST['category'] ."', '". $_POST['fulldescription'] ."', '". $path . $_FILES['photo']['name'] ."', '". $_POST['deadline'] ."', '". $_POST['budget'] ."', '". $_POST['customer'] ."')";
+        $res = mysqli_query($link, $query);
+        if ($res) {
+        	header("Location: kids/index.php");
+        }
+        else {
+        	echo "error";
+        }
+    }
  ?>

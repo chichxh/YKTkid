@@ -86,14 +86,16 @@ if(isset($_POST['signupParrent']))
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<?php require 'header.php' ?>
 	<div class="container">
+		<h1>Регистрация</h1>
 		<p>Выберите роль</p>
-		<button onclick="openKid()">Ребенок</button>
-		<button onclick="openParent()">Родитель</button>
-		<button onclick="openDO()">ДО, ОО</button>
+		<button class="btn btn-primary" onclick="openKid()">Ребенок</button>
+		<button class="btn btn-primary" onclick="openParent()">Родитель</button>
+		<button class="btn btn-primary" onclick="openDO()">ДО, ОО</button>
 	
 		<div id="kid">
-			<button onclick="closeEverything()">Х</button>
+			<button class="btn btn-primary" onclick="closeEverything()">Х</button>
 			<form action="signup.php" method="post">
 				<div class="mb-3">
 				    <label class="form-label">Имя</label>
@@ -132,7 +134,7 @@ if(isset($_POST['signupParrent']))
 		</div>
 
 		<div id="parent">
-			<button onclick="closeEverything()">Х</button>
+			<button class="btn btn-primary" onclick="closeEverything()">Х</button>
 			<form action="signup.php" method="post">
 				<div class="mb-3">
 				    <label class="form-label">Имя</label>
@@ -159,8 +161,30 @@ if(isset($_POST['signupParrent']))
 		</div>
 
 		<div id="do">
-			<p>do</p>
-			<button onclick="closeEverything()">Х</button>
+			<button class="btn btn-primary" onclick="closeEverything()">Х</button>
+			<form action="signup.php" method="post">
+				<div class="mb-3">
+				    <label class="form-label">Полное наименование</label>
+				    <input type="text" class="form-control" id="namePar" name="">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Местоположение</label>
+				    <input type="text" class="form-control" id="surnamePar" name="">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Тип учередения</label>
+				    <input type="text" class="form-control" id="patronymicPar" name="">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Контактные данные</label>
+				    <input type="email" class="form-control" id="emailPar" name="">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Директор</label>
+				    <input type="password" class="form-control" name="">
+				</div>
+				<button type="submit" class="btn btn-primary" name="signupDO">Войти</button>
+			</form>
 		</div>
 	</div>
 	

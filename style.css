@@ -10,3 +10,12 @@ body {
 #do {
 	display: none;
 }
+.event {
+	background-color: #eee;
+}
+.section {
+	background-color: #bbb;
+}
+.order {
+	background-color: #eee;
+}

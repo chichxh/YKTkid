@@ -1,6 +1,30 @@
 <?php 
 require 'connect.php';
 
+
+if(isset($_POST['signinParent'])) {
+
+    $query = mysqli_query($link,"SELECT * FROM parents WHERE emailp = '".$_POST['emailp']."'");
+    $data = mysqli_fetch_assoc($query);
+    if($data['passwordp'] === $_POST['passwordp'])
+    {
+        header('Location: parent/index.php'); 
+        session_start();
+        $_SESSION['idp'] = (int)$data['id'];
+        $_SESSION['namep'] = $data['namep'];
+        $_SESSION['surnamep'] = $data['surnamep'];
+        $_SESSION['patronymicp'] = $data['patronymicp'];
+        $_SESSION['userpicp'] = $data['userpicp'];
+        $_SESSION['emailp'] = $data['emailp'];
+        $_SESSION['passwordp'] = $data['passwordp'];
+    }
+    else
+    {
+        print "Вы ввели неправильный логин/пароль";
+    }
+
+}
+
 if(isset($_POST['signinKid'])) {
 
     $query = mysqli_query($link,"SELECT * FROM kids WHERE email = '".$_POST['email']."'");
@@ -41,14 +65,16 @@ if(isset($_POST['signinKid'])) {
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<?php require 'header.php' ?>
 	<div class="container">
+		<h1>Войти</h1>
 		<p>Выберите роль</p>
-		<button onclick="openKid()">Ребенок</button>
-		<button onclick="openParent()">Родитель</button>
-		<button onclick="openDO()">ДО, ОО</button>
+		<button class="btn btn-primary" onclick="openKid()">Ребенок</button>
+		<button class="btn btn-primary" onclick="openParent()">Родитель</button>
+		<button class="btn btn-primary" onclick="openDO()">ДО, ОО</button>
 	
-		<div id="kid">
-			<button onclick="closeEverything()">Х</button>
+		<div id="kid" class="mb-3">
+			<button class="btn btn-primary" onclick="closeEverything()">Х</button>
 			<form action="signin.php" method="post">
 				<div class="mb-3">
 				    <label class="form-label">Эл. адресс</label>
@@ -62,26 +88,25 @@ if(isset($_POST['signinKid'])) {
 			</form>
 		</div>
 
-		<div id="parent">
-			<p>paretn</p>
-			<button onclick="closeEverything()">Х</button>
+		<div id="parent" class="mb-3">
+			<button class="btn btn-primary" onclick="closeEverything()">Х</button>
 			<form action="signin.php" method="post">
 				<div class="mb-3">
 				    <label class="form-label">Эл. адресс</label>
-				    <input type="email" class="form-control" id="email" name="email">
+				    <input type="email" class="form-control" name="emailp">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Password</label>
-				    <input type="password" class="form-control" name="password">
+				    <input type="password" class="form-control" name="passwordp">
 				</div>
-				<button type="submit" class="btn btn-primary" name="signupKid">Войти</button>
+				<button type="submit" class="btn btn-primary" name="signinParent">Войти</button>
 
 			</form>
 		</div>
 
-		<div id="do">
+		<div id="do" class="mb-3">
 			<p>do</p>
-			<button onclick="closeEverything()">Х</button>
+			<button class="btn btn-primary" onclick="closeEverything()">Х</button>
 		</div>
 	</div>
 	
