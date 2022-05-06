@@ -6,7 +6,7 @@ $name = $_SESSION['namep'];
 $surname = $_SESSION['surnamep'];
 $patronymic = $_SESSION['patronymicp'];
 $userpic = $_SESSION['userpicp'];
-$customer = $name . ' ' . $surname . ' ' . $patronymic;
+$customer = $surname . ' ' . $name . ' ' . $patronymic;
 $sql = 'SELECT * FROM lecture';
 $resultLecture = mysqli_query($link, $sql);
  ?>

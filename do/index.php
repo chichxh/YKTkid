@@ -1,5 +1,14 @@
 <?php 
 require '../connect.php';
+session_start();
+$id = $_SESSION['idDO'];
+$login = $_SESSION['loginDO'];
+$fullname = $_SESSION['fullname'];
+$typeDO = $_SESSION['typeDO'];
+$placeDO = $_SESSION['placeDO'];
+$contactDO = $_SESSION['contactDO'];
+$directorDO = $_SESSION['directorDO'];
+$siteDO = $_SESSION['siteDO'];
  ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -16,8 +25,15 @@ require '../connect.php';
 <body>
 	<?php require '../header.php' ?>
 
-	<!-- добавить мероприятие -->
 	<div class="container">
+		<div class="row">
+			<p><?= $fullname ?></p>
+			<p><?= $typeDO ?></p>
+			<p><?= $placeDO ?></p>
+			<p><?= $contactDO ?></p>
+			<p><?= $directorDO ?></p>
+			<a href="https://<?= $siteDO ?>"><?= $siteDO ?></a>
+		</div>
 		<div class="row mb-5">
 			<h1>Добавить мероприятие</h1>
 			<form action="../upload.php" method="post" enctype=multipart/form-data>

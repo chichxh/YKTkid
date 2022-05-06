@@ -13,6 +13,12 @@ $clas = $_SESSION['clas'];
 $customer = $surname . ' ' . $name . ' ' . $patronymic;
 $sql = 'SELECT * FROM orders';
 $resultOrder = mysqli_query($link, $sql);
+$sql = 'SELECT * FROM order_responses';
+$resultResponses = mysqli_query($link, $sql);
+$sql = 'SELECT * FROM teams';
+$resultTest = mysqli_query($link, $sql);
+$rowTest = mysqli_fetch_array($resultTest);
+var_dump($rowTest['id']);
  ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -25,6 +31,17 @@ $resultOrder = mysqli_query($link, $sql);
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Jost&family=Montserrat&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		.order {
+			background-color: #eee;
+		}
+		.order img {
+			width: 100px;
+		}
+		#orderDiv {
+			display: none;
+		}
+	</style>
 </head>
 <body>
 	<?php require '../header.php' ?>
@@ -34,26 +51,108 @@ $resultOrder = mysqli_query($link, $sql);
 				<img src="../<?= $userpic; ?>">
 			</div>
 			<div class="col-10">
-				<p>Привет, <?= $name; ?> <?= $surname; ?> <?= $patronymic; ?></p>
+				<p>Привет, <?= $surname; ?> <?= $name; ?> <?= $patronymic; ?></p>
+				<p>id: <?= $userID; ?></p>
 				<p>Почта: <?= $email; ?></p>
 				<p>Школа: <?= $school; ?></p>
 				<p>Класс: <?= $clas; ?></p>
 				<p>Возраст: <?= $age; ?></p>
 			</div>
 		</div>
-
+		<div class="row">
+			<h1>Создать команду</h1>
+			<p>максимум 10 участников(не надо заполнять лишние строки, оставьте их пустыми, не пишите никаких - . ' ' и тп)</p>
+			<form action="../upload.php" method="post">
+				<div class="mb-3">
+				    <label class="form-label">Название команды</label>
+				    <input type="text" class="form-control" name="teamname">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Ваш id</label>
+				    <input type="text" class="form-control" name="member_one" value="<?= $userID; ?>">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">2. id участника (в личном кабинете пользователя)</label>
+				    <input type="text" class="form-control" name="member_two">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">3. id участника (в личном кабинете пользователя)</label>
+				    <input type="text" class="form-control" name="member_three">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">4. id участника (в личном кабинете пользователя)</label>
+				    <input type="text" class="form-control" name="member_four">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">5. id участника (в личном кабинете пользователя)</label>
+				    <input type="text" class="form-control" name="member_foive">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">6. id участника (в личном кабинете пользователя)</label>
+				    <input type="text" class="form-control" name="member_six">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">7. id участника (в личном кабинете пользователя)</label>
+				    <input type="text" class="form-control" name="member_seven">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">8. id участника (в личном кабинете пользователя)</label>
+				    <input type="text" class="form-control" name="member_eight">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">9. id участника (в личном кабинете пользователя)</label>
+				    <input type="text" class="form-control" name="member_nine">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">10. id участника (в личном кабинете пользователя)</label>
+				    <input type="text" class="form-control" name="member_ten">
+				</div>
+				<input type="hidden" class="form-control" name="team_id">
+				<button type="submit" class="btn btn-primary" name="submitTeam">Создать команду</button>
+			</form>
+		</div>
 		<div class="row">
 			<h1>Найти заказ</h1>
 			<?php while ($row = mysqli_fetch_array($resultOrder)): ?>
-				<div class="row order mb-3">
+				<div class="order mb-3">
 					<h3><?= $row['title']; ?></h3>
 					<p><?= $row['category']; ?></p>
 					<p><?= $row['fulldescription']; ?></p>
-					<img src="<?= $row['photo']; ?>">
+					<img src="../<?= $row['photo']; ?>">
 					<p><?= $row['deadline']; ?></p>
 					<p><?= $row['budget']; ?></p>
 					<p><?= $row['status']; ?></p>
 					<p><?= $row['customer']; ?></p>
+					<button class="btn btn-primary" onclick="openOrder()">Отозваться</button>
+
+					<div id="orderDiv" class="mt-3">
+						<button class="btn btn-primary" onclick="closeEverything()">Х</button>
+						<form action="../upload.php" method="post">
+							<div class="mb-3">
+							    <label class="form-label">Распишите ваши умения и опыт, чтобы заказчик выбрал вас</label>
+							    <input type="text" class="form-control" name="response">
+							</div>
+							<input type="hidden" class="form-control" name="order_id" value="<?= $row['id']; ?>">
+							<input type="hidden" class="form-control" name="executor_id" value="<?= $userID ; ?>">
+							<input type="hidden" class="form-control" name="executor" value="<?= $customer; ?>">
+							<button type="submit" class="btn btn-primary" name="submitresponse">Отправить</button>
+						</form>
+						<h3>Другие отзывы</h3>
+						<!-- <?php while ($rowresponse = mysqli_fetch_array($resultResponses)): ?>
+							<?php if ($rowresponse['order_id'] == $row['id']): ?>
+								<p><?= $rowresponse['response']; ?></p>
+							<?php endif ?>
+						<?php endwhile; ?> -->
+					</div>
+					<script type="text/javascript">
+						let orderDiv = document.getElementById('orderDiv')
+						function openOrder() {
+							orderDiv.style.display = 'block'
+						}
+						function closeEverything() {
+							orderDiv.style.display = "none"
+						}
+					</script>
 				</div>
 			<?php endwhile; ?>
 		</div>

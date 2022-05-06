@@ -75,4 +75,67 @@ if (isset($_POST['submitorderk'])) {
         	echo "error";
         }
     }
- ?>
+
+if (isset($_POST['submitresponse'])) {
+        $query = "INSERT INTO order_responses (order_id, response_text, executor_id, executor) VALUES ('". $_POST['order_id'] ."', '". $_POST['response'] ."', '". $_POST['executor_id'] ."', '". $_POST['executor'] ."')";
+        $res = mysqli_query($link, $query);
+        if ($res) {
+            header("Location: kids/index.php");
+        }
+        else {
+            echo "error";
+        }
+    }
+
+if (isset($_POST['submitTeam'])) {
+        $query = "INSERT INTO teams (team_name, member_one, member_two, member_three, member_four, member_foive, member_six, member_seven, member_eight, member_nine, member_ten) VALUES ('". $_POST['teamname'] ."', '". $_POST['member_one'] ."', '". $_POST['member_two'] ."', '". $_POST['member_three'] ."', '". $_POST['member_four'] ."', '". $_POST['member_foive'] ."', '". $_POST['member_six'] ."', '". $_POST['member_seven'] ."', '". $_POST['member_eight'] ."', '". $_POST['member_nine'] ."', '". $_POST['member_ten'] ."')";
+        $res = mysqli_query($link, $query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_one'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_two'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_three'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_four'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_foive'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_six'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_seven'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_eight'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_nine'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_ten'];
+        $mysqli->query($query);
+
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_one'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_two'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_three'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_four'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_foive'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_six'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_seven'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_eight'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_nine'];
+        $mysqli->query($query);
+        $query = "UPDATE kids SET team='". $_POST['teamname'] ."' WHERE id = " . $_POST['member_ten'];
+        $mysqli->query($query);
+        if ($res) {
+            header("Location: kids/index.php");
+        }
+        else {
+            echo "error";
+        }
+    }
+?>

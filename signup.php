@@ -16,15 +16,15 @@ if(isset($_POST['signupKid']))
         header("Location: kids/index.php");
         session_start();
         $_SESSION['id'] = (int)$data['id'];
-        $_SESSION['name'] = $data['name'];
-        $_SESSION['surname'] = $data['surname'];
-        $_SESSION['patronymic'] = $data['patronymic'];
-        $_SESSION['userpic'] = $data['userpic'];
-        $_SESSION['email'] = $data['email'];
-        $_SESSION['age'] = $data['age'];
-        $_SESSION['school'] = $data['school'];
-        $_SESSION['clas'] = $data['clas'];
-        $_SESSION['password'] = $data['password'];
+        $_SESSION['name'] = $_POST['name'];
+        $_SESSION['surname'] = $_POST['surname'];
+        $_SESSION['patronymic'] = $_POST['patronymic'];
+        $_SESSION['userpic'] = "defaultUP.png";
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['age'] = $_POST['age'];
+        $_SESSION['school'] = $_POST['school'];
+        $_SESSION['clas'] = $_POST['clas'];
+        $_SESSION['password'] = $_POST['password'];
     }
     else
     {
@@ -38,18 +38,16 @@ if(isset($_POST['signupKid']))
 //Регистрация Родителей
 if(isset($_POST['signupParrent']))
 {
-	$queryPar = mysqli_query($link, "SELECT id FROM parents WHERE emailPar='".mysqli_real_escape_string($link, $_POST['emailPar'])."'");
+	$queryPar = mysqli_query($link, "SELECT id FROM parents WHERE emailp='".mysqli_real_escape_string($link, $_POST['emailPar'])."'");
 	if(mysqli_num_rows($queryPar) > 0)
 	{
 	    $err[] = "Пользователь с такой электроной почтой уже существует";
 	}
     if(count($err) == 0)
     {
-        $emailPar = $_POST['emailPar'];
-        $password = md5(md5(trim($_POST['passwordPar'])));
-        $queryPar = "INSERT INTO parents (namePar, surnamePar, patronymicPar, emailPar, passwordPar) VALUES ('". $_POST['namePar'] ."', '". $_POST['surnamePar'] ."', '". $_POST['patronymicPar'] ."', '". $_POST['emailPar'] ."', '". $_POST['passwordPar'] ."')";
-        $res = mysqli_query($link, $queryPar);
-        header("Location: parrent/index.php");
+        $query = "INSERT INTO parents (namep, surnamep, patronymicp, emailp, passwordp) VALUES ('". $_POST['namePar'] ."', '". $_POST['surnamePar'] ."', '". $_POST['patronymicPar'] ."', '". $_POST['emailPar'] ."', '". $_POST['passwordPar'] ."')";
+        $res = mysqli_query($link, $query);
+        header("Location: parent/index.php");
         // session_start();
         // $_SESSION['id'] = (int)$data['id'];
         // $_SESSION['name'] = $data['name'];
@@ -61,6 +59,37 @@ if(isset($_POST['signupParrent']))
         // $_SESSION['school'] = $data['school'];
         // $_SESSION['clas'] = $data['clas'];
         // $_SESSION['password'] = $data['password'];
+    }
+    else
+    {
+        print "<b>При регистрации произошли следующие ошибки:</b><br>";
+        foreach($err AS $error)
+        {
+            print $error."<br>";
+        }
+    }
+}
+
+if(isset($_POST['signupDO']))
+{
+	$queryPar = mysqli_query($link, "SELECT id FROM do WHERE loginDO='".mysqli_real_escape_string($link, $_POST['loginDO'])."'");
+	if(mysqli_num_rows($queryPar) > 0)
+	{
+	    $err[] = "Это ДО/ОО уже зарегестрировано";
+	}
+    if(count($err) == 0)
+    {
+        $query = "INSERT INTO do (fullname, typeDO, placeDO, contactDO, directorDO, siteDO, loginDO, passwordDO) VALUES ('". $_POST['fullname'] ."', '". $_POST['typeDO'] ."', '". $_POST['placeDO'] ."', '". $_POST['contactDO'] ."', '". $_POST['directorDO'] ."', '". $_POST['siteDO'] ."', '". $_POST['loginDO'] ."', '". $_POST['passwordDO'] ."')";
+        $res = mysqli_query($link, $query);
+        header("Location: do/index.php");
+        session_start();
+		$_SESSION['loginDO'] = $_POST['loginDO'];
+		$_SESSION['fullname'] = $_POST['fullname'];
+		$_SESSION['typeDO'] = $_POST['typeDO'];
+		$_SESSION['placeDO'] = $_POST['placeDO'];
+		$_SESSION['contactDO'] = $_POST['contactDO'];
+		$_SESSION['directorDO'] = $_POST['directorDO'];
+		$_SESSION['siteDO'] = $_POST['siteDO'];
     }
     else
     {
@@ -138,19 +167,19 @@ if(isset($_POST['signupParrent']))
 			<form action="signup.php" method="post">
 				<div class="mb-3">
 				    <label class="form-label">Имя</label>
-				    <input type="text" class="form-control" id="namePar" name="namePar">
+				    <input type="text" class="form-control" name="namePar">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Фамилия</label>
-				    <input type="text" class="form-control" id="surnamePar" name="surnamePar">
+				    <input type="text" class="form-control" name="surnamePar">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Отчество</label>
-				    <input type="text" class="form-control" id="patronymicPar" name="patronymicPar">
+				    <input type="text" class="form-control" name="patronymicPar">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Эл. адресс</label>
-				    <input type="email" class="form-control" id="emailPar" name="emailPar">
+				    <input type="email" class="form-control" name="emailPar">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Пароль</label>
@@ -165,23 +194,35 @@ if(isset($_POST['signupParrent']))
 			<form action="signup.php" method="post">
 				<div class="mb-3">
 				    <label class="form-label">Полное наименование</label>
-				    <input type="text" class="form-control" id="namePar" name="">
+				    <input type="text" class="form-control" name="fullname">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Местоположение</label>
-				    <input type="text" class="form-control" id="surnamePar" name="">
+				    <input type="text" class="form-control" name="placeDO">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Тип учередения</label>
-				    <input type="text" class="form-control" id="patronymicPar" name="">
+				    <input type="text" class="form-control" name="typeDO">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Контактные данные</label>
-				    <input type="email" class="form-control" id="emailPar" name="">
+				    <input type="text" class="form-control" name="contactDO">
 				</div>
 				<div class="mb-3">
 				    <label class="form-label">Директор</label>
-				    <input type="password" class="form-control" name="">
+				    <input type="text" class="form-control" name="directorDO">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Ссылка на сайт</label>
+				    <input type="text" class="form-control" name="siteDO">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Логин</label>
+				    <input type="text" class="form-control" name="loginDO">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Пароль</label>
+				    <input type="password" class="form-control" name="passwordDO">
 				</div>
 				<button type="submit" class="btn btn-primary" name="signupDO">Войти</button>
 			</form>

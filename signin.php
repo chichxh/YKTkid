@@ -49,7 +49,30 @@ if(isset($_POST['signinKid'])) {
     {
         print "Вы ввели неправильный логин/пароль";
     }
+}
+if(isset($_POST['signinDO'])) {
 
+    $query = mysqli_query($link,"SELECT * FROM do WHERE loginDO = '".$_POST['loginDO']."'");
+    $data = mysqli_fetch_assoc($query);
+
+    if($data['passwordDO'] === $_POST['passwordDO'])
+    {
+        header('Location: do/index.php'); 
+        session_start();
+        $_SESSION['idDO'] = (int)$data['id'];
+        $_SESSION['loginDO'] = $data['loginDO'];
+        $_SESSION['passwordDO'] = $data['passwordDO'];
+        $_SESSION['fullname'] = $data['fullname'];
+        $_SESSION['typeDO'] = $data['typeDO'];
+        $_SESSION['placeDO'] = $data['placeDO'];
+        $_SESSION['contactDO'] = $data['contactDO'];
+        $_SESSION['directorDO'] = $data['directorDO'];
+        $_SESSION['siteDO'] = $data['siteDO'];
+    }
+    else
+    {
+        print "Вы ввели неправильный логин/пароль";
+    }
 }
  ?>
 <!DOCTYPE html>
@@ -96,17 +119,27 @@ if(isset($_POST['signinKid'])) {
 				    <input type="email" class="form-control" name="emailp">
 				</div>
 				<div class="mb-3">
-				    <label class="form-label">Password</label>
+				    <label class="form-label">Пароль</label>
 				    <input type="password" class="form-control" name="passwordp">
 				</div>
 				<button type="submit" class="btn btn-primary" name="signinParent">Войти</button>
-
 			</form>
 		</div>
 
 		<div id="do" class="mb-3">
 			<p>do</p>
 			<button class="btn btn-primary" onclick="closeEverything()">Х</button>
+			<form action="signin.php" method="post">
+				<div class="mb-3">
+				    <label class="form-label">Логин</label>
+				    <input type="text" class="form-control" name="loginDO">
+				</div>
+				<div class="mb-3">
+				    <label class="form-label">Пароль</label>
+				    <input type="password" class="form-control" name="passwordDO">
+				</div>
+				<button type="submit" class="btn btn-primary" name="signinDO">Войти</button>
+			</form>
 		</div>
 	</div>
 	
