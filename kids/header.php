@@ -10,7 +10,7 @@
 				</a>
 			</div>
 			<div>
-				<a class="ps-4" href="">О проекте</a>
+				<a class="ps-4" href="freelance.php">Фриланс</a>
 				<a class="ps-4" href="lk.php">ЛК: <?= $customer ?></a>
 			</div>
 		</div>

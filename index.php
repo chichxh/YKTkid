@@ -609,7 +609,7 @@ $resultSection = mysqli_query($link, $sql);
 		</div>
 
 		<!-- мероприятия -->
-		<div class="row bgSvgEllips">
+		<!-- <div class="row bgSvgEllips">
 			<?php while ($row = mysqli_fetch_array($resultEvent)): ?>
 				<div class="col-3 eventDiv">
 					<img src="<?= $row['photo']; ?>">
@@ -619,7 +619,7 @@ $resultSection = mysqli_query($link, $sql);
 					</div>
 				</div>
 			<?php endwhile; ?>
-		</div>
+		</div> -->
 
 		<!-- о поддежке -->
 		<div class="row align-items-center">

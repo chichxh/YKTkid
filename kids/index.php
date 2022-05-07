@@ -46,9 +46,6 @@ $resultEvent1 = mysqli_query($link, $sql);
 	<link href="https://fonts.googleapis.com/css2?family=Jost&family=Montserrat&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<style type="text/css">
-		.order img {
-			width: 100px;
-		}
 		#orderDiv {
 			display: none;
 		}
@@ -90,6 +87,9 @@ $resultEvent1 = mysqli_query($link, $sql);
 		}
 		a:hover {
 			color: #FFC53A;
+		}
+		img {
+			width: 90%;
 		}
 	</style>
 </head>
@@ -150,15 +150,15 @@ $resultEvent1 = mysqli_query($link, $sql);
 				<div id="newsDiv">
 					<div class="row">
 						<?php while ($row = mysqli_fetch_array($resultLecture1)): ?>
-							<div class="col-6">
+							<div class="col-6 mb-3">
 								<h3><?= $row['name']; ?></h3>
 								<p><?= $row['shortdescription']; ?></p>
 								<p><?= $row['fulldescription']; ?></p>
-								<!-- <video  width="400" height="300" controls="controls"><source src="<?= $row['video']; ?>" type='video/ogg; codecs="theora, vorbis"'></video> -->
+								<img src="../<?= $row['video']; ?>">
 							</div>
 						<?php endwhile; ?>
 						<?php while ($row = mysqli_fetch_array($resultEvent1)): ?>
-							<div class="col-6">
+							<div class="col-6 mb-3">
 								<img src="../<?= $row['photo']; ?>">
 								<p><?= $row['name']; ?></p>
 								<p><?= $row['dateofevent']; ?></p>
@@ -166,7 +166,7 @@ $resultEvent1 = mysqli_query($link, $sql);
 							</div>
 						<?php endwhile; ?>
 						<?php while ($row = mysqli_fetch_array($resultSection1)): ?>
-							<div class="col-6">
+							<div class="col-6 mb-3">
 								<img src="../<?= $row['photo']; ?>">
 								<p><?= $row['name']; ?></p>
 								<p><?= $row['dateofevent']; ?></p>
@@ -215,48 +215,52 @@ $resultEvent1 = mysqli_query($link, $sql);
 						    <label class="form-label">Название команды</label>
 						    <input type="text" class="form-control" name="teamname">
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Ваш id</label>
-						    <input type="text" class="form-control" name="member_one" value="<?= $userID; ?>">
+						<div class="row">
+							<div class="col-2 mb-3">
+								<label class="form-label">Ваш id</label>
+						    	<input type="text" class="form-control" name="member_one" value="<?= $userID; ?>">
+							</div>
+							<div class="col-2 mb-3">
+								<label class="form-label">id 2 учасника</label>
+						    	<input type="text" class="form-control" name="member_two">
+							</div>
+							<div class="col-2 mb-3">
+								<label class="form-label">id 3 учасника</label>
+						    	<input type="text" class="form-control" name="member_three">
+							</div>
+							<div class="col-2 mb-3">
+								<label class="form-label">id 4 учасника</label>
+						    	<input type="text" class="form-control" name="member_four">
+							</div>
+							<div class="col-2 mb-3">
+								<label class="form-label">id 5 учасника</label>
+						    	<input type="text" class="form-control" name="member_foive">
+							</div>
+							<div class="col-2 mb-3">
+								<label class="form-label">id 6 учасника</label>
+						    	<input type="text" class="form-control" name="member_six">
+							</div>
+							<div class="col-2 mb-3">
+								<label class="form-label">id 7 учасника</label>
+						    	<input type="text" class="form-control" name="member_seven">
+							</div>
+							<div class="col-2 mb-3">
+								<label class="form-label">id 8 учасника</label>
+						    	<input type="text" class="form-control" name="member_eight">
+							</div>
+							<div class="col-2 mb-3">
+								<label class="form-label">id 9 учасника</label>
+						    	<input type="text" class="form-control" name="member_nine">
+							</div>
+							<div class="col-2 mb-3">
+								<label class="form-label">id 10 учасника</label>
+						    	<input type="text" class="form-control" name="member_ten">
+							</div>
+							<div class="col-4 d-flex align-items-end">
+								<input type="hidden" class="form-control" name="team_id">
+								<button type="submit" class="btn btn-kid" name="submitTeam">Создать команду</button>
+							</div>
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">2. id участника (в личном кабинете пользователя)</label>
-						    <input type="text" class="form-control" name="member_two">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">3. id участника (в личном кабинете пользователя)</label>
-						    <input type="text" class="form-control" name="member_three">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">4. id участника (в личном кабинете пользователя)</label>
-						    <input type="text" class="form-control" name="member_four">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">5. id участника (в личном кабинете пользователя)</label>
-						    <input type="text" class="form-control" name="member_foive">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">6. id участника (в личном кабинете пользователя)</label>
-						    <input type="text" class="form-control" name="member_six">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">7. id участника (в личном кабинете пользователя)</label>
-						    <input type="text" class="form-control" name="member_seven">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">8. id участника (в личном кабинете пользователя)</label>
-						    <input type="text" class="form-control" name="member_eight">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">9. id участника (в личном кабинете пользователя)</label>
-						    <input type="text" class="form-control" name="member_nine">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">10. id участника (в личном кабинете пользователя)</label>
-						    <input type="text" class="form-control" name="member_ten">
-						</div>
-						<input type="hidden" class="form-control" name="team_id">
-						<button type="submit" class="btn btn-primary" name="submitTeam">Создать команду</button>
 					</form>
 				</div>
 			</div>
