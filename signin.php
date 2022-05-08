@@ -83,6 +83,7 @@ if(isset($_POST['signinDO'])) {
 	<title></title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.png" type="image/png">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,7 +125,13 @@ if(isset($_POST['signinDO'])) {
 					<p>Еще нет аккаунта?  <a href="signup.php">Зарегистрируйтесь</a></p>
 				</div>
 				<div id="kid" class="mb-3">
-					<button class="btn" onclick="closeEverything()">Х</button>
+					<button class="btn" onclick="closeEverything()">
+						<svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.2217 15.6953L27.6738 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<path d="M27.6738 15.6953L16.2217 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<rect x="1.39648" y="0.871094" width="41.1031" height="41.1031" rx="9.5" stroke="#000"/>
+						</svg>
+					</button>
 					<form action="signin.php" method="post">
 						<div class="mb-3">
 						    <label class="form-label">Эл. адресс</label>
@@ -139,7 +146,13 @@ if(isset($_POST['signinDO'])) {
 				</div>
 
 				<div id="parent" class="mb-3">
-					<button class="btn" onclick="closeEverything()">Х</button>
+					<button class="btn" onclick="closeEverything()">
+						<svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.2217 15.6953L27.6738 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<path d="M27.6738 15.6953L16.2217 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<rect x="1.39648" y="0.871094" width="41.1031" height="41.1031" rx="9.5" stroke="#000"/>
+						</svg>
+					</button>
 					<form action="signin.php" method="post">
 						<div class="mb-3">
 						    <label class="form-label">Эл. адресс</label>
@@ -154,7 +167,13 @@ if(isset($_POST['signinDO'])) {
 				</div>
 
 				<div id="do" class="mb-3">
-					<button class="btn" onclick="closeEverything()">Х</button>
+					<button class="btn" onclick="closeEverything()">
+						<svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.2217 15.6953L27.6738 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<path d="M27.6738 15.6953L16.2217 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<rect x="1.39648" y="0.871094" width="41.1031" height="41.1031" rx="9.5" stroke="#000"/>
+						</svg>
+					</button>
 					<form action="signin.php" method="post">
 						<div class="mb-3">
 						    <label class="form-label">Логин</label>
@@ -271,7 +290,7 @@ if(isset($_POST['signinDO'])) {
 			toptext.textContent = "Кто вы?"
 		}
 	</script>
-
+	<?php require 'footer.php' ?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -16,25 +16,69 @@ $siteDO = $_SESSION['siteDO'];
 	<title></title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../favicon.png" type="image/png">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Jost&family=Montserrat&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		.bg-kid {
+			background: #F8F4F4;
+			border-radius: 10.935px;
+			padding: 15px 30px;
+		}
+		.bg-kid p {
+			margin: 0px;
+		}
+	</style>
 </head>
 <body>
-	<?php require '../header.php' ?>
+	<?php require 'header.php' ?>
 
-	<div class="container">
+	<div class="container mt-5">
 		<div class="row">
-			<p><?= $fullname ?></p>
-			<p><?= $typeDO ?></p>
-			<p><?= $placeDO ?></p>
-			<p><?= $contactDO ?></p>
-			<p><?= $directorDO ?></p>
-			<a href="https://<?= $siteDO ?>"><?= $siteDO ?></a>
+			<div class="col-6">
+				<p>Полное наименование учреждения</p>
+				<div class="bg-kid">
+					<p><?= $fullname ?></p>
+				</div>
+			</div>
+			<div class="col-6">
+				<p>Тип учреждения</p>
+				<div class="bg-kid">
+					<p><?= $typeDO ?></p>
+				</div>
+			</div>
+			<div class="col-6">
+				<p>Местоположение</p>
+				<div class="bg-kid">
+					<p><?= $placeDO ?></p>
+				</div>
+			</div>
+			<div class="col-6">
+				<p>Сайт</p>
+				<div class="bg-kid">
+					<a href="https://<?= $siteDO ?>"><?= $siteDO ?></a>
+				</div>
+			</div>
+			<div class="col-6">
+				<p>Контакты</p>
+				<div class="bg-kid">
+					<p><?= $contactDO ?></p>
+				</div>
+			</div>
+			<div class="col-6">
+				<p>Директор</p>
+				<div class="bg-kid">
+					<p><?= $directorDO ?></p>
+				</div>
+			</div>
+			
+			
+			
 		</div>
-		<div class="row mb-5">
+		<div class="row mb-5 mt-5">
 			<h1>Добавить мероприятие</h1>
 			<form action="../upload.php" method="post" enctype=multipart/form-data>
 				<div class="mb-3">
@@ -138,6 +182,7 @@ $siteDO = $_SESSION['siteDO'];
 			</form>
 		</div>
 	</div>
+	<?php require '../footer.php' ?>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

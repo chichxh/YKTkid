@@ -150,81 +150,117 @@ if(isset($_POST['signupDO']))
 				</div>
 				
 				<div id="kid">
-					<button class="btn" onclick="closeEverything()">Х</button>
+					<button class="btn" onclick="closeEverything()">
+						<svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.2217 15.6953L27.6738 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<path d="M27.6738 15.6953L16.2217 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<rect x="1.39648" y="0.871094" width="41.1031" height="41.1031" rx="9.5" stroke="#000"/>
+						</svg>
+					</button>
 					<form action="signup.php" method="post">
-						<div class="mb-3">
-						    <label class="form-label">Имя</label>
-						    <input type="text" class="form-control" id="name" name="name">
+						<div class="row">
+							<div class="col-6 mb-3">
+								<label class="form-label">Имя</label>
+						    	<input type="text" class="form-control" id="name" name="name">
+							</div>
+							<div class="col-6 mb-3">
+								<label class="form-label">Фамилия</label>
+						    	<input type="text" class="form-control" id="surname" name="surname">
+							</div>
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Фамилия</label>
-						    <input type="text" class="form-control" id="surname" name="surname">
+						<div class="row">
+							<div class="col-6 mb-3">
+								<label class="form-label">Отчество</label>
+						    	<input type="text" class="form-control" id="patronymic" name="patronymic">
+							</div>
+							<div class="col-6 mb-3">
+								<label class="form-label">Телефон</label>
+						    	<input type="text" class="form-control" id="tel" name="tel">
+							</div>
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Отчество</label>
-						    <input type="text" class="form-control" id="patronymic" name="patronymic">
+						<div class="row">
+							<div class="col-12 mb-3">
+								<label class="form-label">Эл. адресс</label>
+						    	<input type="email" class="form-control" id="email" name="email">
+							</div>
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Возраст</label>
-						    <input type="text" class="form-control" id="age" name="age">
+						<div class="row">
+							<div class="col-6 mb-3">
+								<label class="form-label">Возраст</label>
+						    	<input type="text" class="form-control" id="age" name="age">
+							</div>
+							<div class="col-6 mb-3">
+								<label class="form-label">Класс</label>
+						    	<input type="text" class="form-control" id="clas" name="clas">
+							</div>
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Школа</label>
-						    <input type="text" class="form-control" id="school" name="school">
+						<div class="row">
+							<div class="col-12 mb-3">
+								<label class="form-label">Школа</label>
+						    	<input type="text" class="form-control" id="school" name="school">
+							</div>
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Класс</label>
-						    <input type="text" class="form-control" id="clas" name="clas">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">Коротко о себе</label>
+						<div class="row">
+							<div class="col-12 mb-3">
+								<label class="form-label">Коротко о себе</label>
 						    <input type="text" class="form-control" id="aboutme" name="aboutme">
+							</div>
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Эл. адресс</label>
-						    <input type="email" class="form-control" id="email" name="email">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">Телефон</label>
-						    <input type="text" class="form-control" id="tel" name="tel">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">Пароль</label>
-						    <input type="password" class="form-control" name="password">
+						<div class="row">
+							<div class="col-12 mb-3">
+								<label class="form-label">Пароль</label>
+						    	<input type="password" class="form-control" name="password">
+							</div>
 						</div>
 						<button type="submit" class="btn btn-regist-fin" name="signupKid">Войти</button>
 					</form>
 				</div>
 
 				<div id="parent">
-					<button class="btn" onclick="closeEverything()">Х</button>
+					<button class="btn" onclick="closeEverything()">
+						<svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.2217 15.6953L27.6738 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<path d="M27.6738 15.6953L16.2217 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<rect x="1.39648" y="0.871094" width="41.1031" height="41.1031" rx="9.5" stroke="#000"/>
+						</svg>
+					</button>
 					<form action="signup.php" method="post">
-						<div class="mb-3">
-						    <label class="form-label">Имя</label>
-						    <input type="text" class="form-control" name="namePar">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">Фамилия</label>
-						    <input type="text" class="form-control" name="surnamePar">
+						<div class="row">
+							<div class="col-6">
+								<label class="form-label">Имя</label>
+						    	<input type="text" class="form-control" name="namePar">
+							</div>
+							<div class="col-6">
+								<label class="form-label">Фамилия</label>
+						    	<input type="text" class="form-control" name="surnamePar">
+							</div>
 						</div>
 						<div class="mb-3">
 						    <label class="form-label">Отчество</label>
 						    <input type="text" class="form-control" name="patronymicPar">
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Эл. адресс</label>
-						    <input type="email" class="form-control" name="emailPar">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">Пароль</label>
-						    <input type="password" class="form-control" name="passwordPar">
+						<div class="row">
+							<div class=" col-6 mb-3">
+							    <label class="form-label">Эл. адресс</label>
+							    <input type="email" class="form-control" name="emailPar">
+							</div>
+							<div class="col-6 mb-3">
+							    <label class="form-label">Пароль</label>
+							    <input type="password" class="form-control" name="passwordPar">
+							</div>
 						</div>
 						<button type="submit" class="btn btn-regist-fin" name="signupParrent">Войти</button>
 					</form>
 				</div>
 
 				<div id="do">
-					<button class="btn" onclick="closeEverything()">Х</button>
+					<button class="btn" onclick="closeEverything()">
+						<svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.2217 15.6953L27.6738 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<path d="M27.6738 15.6953L16.2217 27.1475" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+						<rect x="1.39648" y="0.871094" width="41.1031" height="41.1031" rx="9.5" stroke="#000"/>
+						</svg>
+					</button>
 					<form action="signup.php" method="post">
 						<div class="mb-3">
 						    <label class="form-label">Полное наименование</label>
@@ -234,13 +270,15 @@ if(isset($_POST['signupDO']))
 						    <label class="form-label">Местоположение</label>
 						    <input type="text" class="form-control" name="placeDO">
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Тип учередения</label>
-						    <input type="text" class="form-control" name="typeDO">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">Контактные данные</label>
-						    <input type="text" class="form-control" name="contactDO">
+						<div class="row">
+							<div class="col-6 mb-3">
+							    <label class="form-label">Тип учередения</label>
+							    <input type="text" class="form-control" name="typeDO">
+							</div>
+							<div class="col-6 mb-3">
+							    <label class="form-label">Контактные данные</label>
+							    <input type="text" class="form-control" name="contactDO">
+							</div>
 						</div>
 						<div class="mb-3">
 						    <label class="form-label">Директор</label>
@@ -250,13 +288,15 @@ if(isset($_POST['signupDO']))
 						    <label class="form-label">Ссылка на сайт</label>
 						    <input type="text" class="form-control" name="siteDO">
 						</div>
-						<div class="mb-3">
-						    <label class="form-label">Логин</label>
-						    <input type="text" class="form-control" name="loginDO">
-						</div>
-						<div class="mb-3">
-						    <label class="form-label">Пароль</label>
-						    <input type="password" class="form-control" name="passwordDO">
+						<div class="row">
+							<div class="col-6 mb-3">
+							    <label class="form-label">Логин</label>
+							    <input type="text" class="form-control" name="loginDO">
+							</div>
+							<div class="col-6 mb-3">
+							    <label class="form-label">Пароль</label>
+							    <input type="password" class="form-control" name="passwordDO">
+							</div>
 						</div>
 						<button type="submit" class="btn btn-regist-fin" name="signupDO">Войти</button>
 					</form>
@@ -365,7 +405,7 @@ if(isset($_POST['signupDO']))
 			toptext.textContent = "Кто вы?"
 		}
 	</script>
-
+	<?php require 'footer.php' ?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

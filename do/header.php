@@ -10,7 +10,7 @@
 				</a>
 			</div>
 			<div>
-				<a class="ps-4" href="lk.php"><img src="../<?= $userpicp ?>"></a>
+				<a class="ps-4" href="index.php">ЛК: <?= $fullname ?></a>
 			</div>
 		</div>
 	</div>

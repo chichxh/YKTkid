@@ -10,8 +10,7 @@
 				</a>
 			</div>
 			<div>
-				<a class="ps-4" href="freelance.php">Фриланс</a>
-				<a class="ps-4" href="lk.php">ЛК: <?= $customer ?></a>
+				<a class="ps-4" href="lk.php"><img src="../<?= $userpic ?>"></a>
 			</div>
 		</div>
 	</div>

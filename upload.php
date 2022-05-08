@@ -88,7 +88,7 @@ if (isset($_POST['submitresponse'])) {
     }
 
 if (isset($_POST['submitTeam'])) {
-        $query = "INSERT INTO teams (team_name, member_one, member_two, member_three, member_four, member_foive, member_six, member_seven, member_eight, member_nine, member_ten) VALUES ('". $_POST['teamname'] ."', '". $_POST['member_one'] ."', '". $_POST['member_two'] ."', '". $_POST['member_three'] ."', '". $_POST['member_four'] ."', '". $_POST['member_foive'] ."', '". $_POST['member_six'] ."', '". $_POST['member_seven'] ."', '". $_POST['member_eight'] ."', '". $_POST['member_nine'] ."', '". $_POST['member_ten'] ."')";
+        $query = "INSERT INTO teams (team_name, team_descr, member_one, member_two, member_three, member_four, member_foive, member_six, member_seven, member_eight, member_nine, member_ten) VALUES ('". $_POST['teamname'] ."', '". $_POST['teamdescr'] ."', '". $_POST['member_one'] ."', '". $_POST['member_two'] ."', '". $_POST['member_three'] ."', '". $_POST['member_four'] ."', '". $_POST['member_foive'] ."', '". $_POST['member_six'] ."', '". $_POST['member_seven'] ."', '". $_POST['member_eight'] ."', '". $_POST['member_nine'] ."', '". $_POST['member_ten'] ."')";
         $res = mysqli_query($link, $query);
         $query = "UPDATE kids SET team_id='". $_POST['team_id'] ."' WHERE id = " . $_POST['member_one'];
         $mysqli->query($query);
