@@ -83,9 +83,33 @@ $Sphoto = $_SESSION['Sphoto'];
 			<p>Дата провдения: <?= $Sdateofevent ?></p>
 			<p>Место проведения: <?= $Splace ?></p>
 			<p>Тип оплаты: <?= $Stypebill ?></p>
-			<button class="btn btn-primary mb-3">Записаться на кружок</button>
-			<button class="btn btn-primary">Записаться на кружок своей командой</button>
+			<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Записаться на кружок</button>
+			<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Записаться на кружок своей командой</button>
 		</div>
+	</div>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Запись на кружок</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		       <form>
+		        	<div class="mb-3">
+					    <label class="form-label">Оплата</label>
+					    <input type="text" class="form-control" name="passwordp">
+					</div>
+					<div class="mb-3">
+					    <label class="form-label">Ваш комментарий</label>
+					    <input type="text" class="form-control" name="passwordp">
+					</div>
+					<button type="submit" class="btn btn-primary" name="signinParent">Записаться</button>
+		        </form>
+		      </div>
+		    </div>
+		  </div>
 	</div>
 
 	<?php require '../footer.php' ?>

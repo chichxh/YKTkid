@@ -40,6 +40,7 @@ if(isset($_POST['signinKid'])) {
         $_SESSION['patronymic'] = $data['patronymic'];
         $_SESSION['userpic'] = $data['userpic'];
         $_SESSION['email'] = $data['email'];
+        $_SESSION['aboutme'] = $data['aboutme'];
         $_SESSION['tel'] = $data['tel'];
         $_SESSION['age'] = $data['age'];
         $_SESSION['school'] = $data['school'];
