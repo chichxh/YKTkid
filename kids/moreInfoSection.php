@@ -83,7 +83,8 @@ $Sphoto = $_SESSION['Sphoto'];
 			<p>Дата провдения: <?= $Sdateofevent ?></p>
 			<p>Место проведения: <?= $Splace ?></p>
 			<p>Тип оплаты: <?= $Stypebill ?></p>
-			<button class="btn btn-primary">Записаться на кружок</button>
+			<button class="btn btn-primary mb-3">Записаться на кружок</button>
+			<button class="btn btn-primary">Записаться на кружок своей командой</button>
 		</div>
 	</div>
 

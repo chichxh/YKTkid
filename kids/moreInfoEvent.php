@@ -89,7 +89,9 @@ $Estatus = $_SESSION['Estatus'];
 			<p>Место проведения: <?= $Eplace ?></p>
 			<p>Дата провдения: <?= $Edateofevent ?></p>
 			<p>Тип оплаты: <?= $Etypebill ?></p>
-			<button class="btn btn-primary disabled">Заявки не принимаются</button>
+			<button class="btn btn-primary mb-3">Записаться на кружок</button>
+			<button class="btn btn-primary">Записаться на кружок своей командой</button>
+
 		</div>
 	</div>
 

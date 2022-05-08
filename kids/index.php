@@ -139,6 +139,9 @@ $resultTeam = mysqli_query($link, $sql);
 		#teamBigBtn {
 			display: none;
 		}
+		#myTeam {
+			display: none;
+		}
 	</style>
 </head>
 <body>
@@ -596,6 +599,7 @@ $resultTeam = mysqli_query($link, $sql);
 					btnTeam.style.boxShadow = "none"
 					btnFreelance.style.boxShadow = "none"
 					freelanceDiv.style.display = "none"
+					myTeam.style.display = "none"
 				}
 				function openContent() {
 					newsDiv.style.display = "none"
@@ -610,6 +614,7 @@ $resultTeam = mysqli_query($link, $sql);
 					btnTeam.style.boxShadow = "none"
 					btnFreelance.style.boxShadow = "none"
 					freelanceDiv.style.display = "none"
+					myTeam.style.display = "none"
 				}
 				function openEvent() {
 					newsDiv.style.display = "none"
@@ -624,6 +629,7 @@ $resultTeam = mysqli_query($link, $sql);
 					btnTeam.style.boxShadow = "none"
 					btnFreelance.style.boxShadow = "none"
 					freelanceDiv.style.display = "none"
+					myTeam.style.display = "none"
 				}
 				function openSection() {
 					newsDiv.style.display = "none"
@@ -638,6 +644,7 @@ $resultTeam = mysqli_query($link, $sql);
 					btnTeam.style.boxShadow = "none"
 					btnFreelance.style.boxShadow = "none"
 					freelanceDiv.style.display = "none"
+					myTeam.style.display = "none"
 				}
 				function openTeam() {
 					btnNews.style.boxShadow = "none"
@@ -693,6 +700,7 @@ $resultTeam = mysqli_query($link, $sql);
 					btnTeam.style.boxShadow = "none"
 					btnFreelance.style.boxShadow = "0px 0px 5.4675px rgba(0, 0, 0, 0.16)"
 					freelanceDiv.style.display = "flex"
+					myTeam.style.display = "none"
 				}
 			</script>
 		</div>
